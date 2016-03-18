@@ -1,0 +1,125 @@
+html {
+  box-sizing: border-box;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Remove default margin and set default font family to sans-serif.
+ */
+body {
+  margin: 0;
+  font-family: 'Tahoma', sans-serif;
+}
+
+/*
+ * Strip margin and padding from core elements
+ * (brings them to the same predictable blank slate of a div)
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+figure,
+dl,
+ol,
+ul {
+  margin-left: 10px;
+  padding: 0;
+}
+
+/*
+ * Address style set to `bolder` in Firefox, Safari, and Chrome.
+ */
+strong {
+  font-weight: bold;
+}
+
+/*
+ * Remove inner padding and border in Firefox
+ */
+::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/*
+ * 1. Address `overflow` set to `hidden` in IE 10/11.
+ * 2. Improve consistency of cursor style
+ */
+button {
+    height: 30px;
+    width: 100px;
+    font-size: 12px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 1px rgba(0, 0, 0, .075);
+    border-color: #b92c28;
+    background-color: #c12e2a;
+}
+
+.btnprimary {
+border-color: #245580;
+background-color: #265a88;
+}
+
+
+.btndanger {
+  border-color: #b92c28;
+  background-color: #c12e2a;
+}
+/*
+ * 1. For responsive web development, makes sure images respect the bounds
+ *    of a fluid container.
+ * 2. The image's aspect ratio is preserved even if it has an inline height set.
+ * 3. Fixes images within links gaining a border in IE 10.
+ */
+img {
+  max-width: 50%;
+  height: auto;
+}
+/*
+ * Makes sure images respect the bounds of a fluid container.
+ */
+svg {
+  max-height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.toggable{
+  width: 400px;
+  height: 100%;
+  border: solid 1px #ddd;
+  margin: 10px;
+}
+
+.toggable header{
+  width: 100%;
+  padding: 10px;
+  background-color: #ddd;
+}
+.bodycontent {
+  text-align: center;
+
+}
+
+.sidebar1 {
+  width: 400px;
+  padding-left: 300px;
+}
+.tableBorder {
+  border: solid 1px #ddd;
+}
+.tableheader {
+  background-color: #e0e0e0;
+}
