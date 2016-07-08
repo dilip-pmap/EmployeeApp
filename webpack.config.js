@@ -5,7 +5,7 @@ var webpack = require('webpack');
  */
 var config = {
   devtool: 'eval-source-map',
-  entry:  __dirname + "/app/App.js",
+  entry:  __dirname + "/app/index.js",
   output: {
     path: __dirname + "/public",
     filename: "bundle.js"
@@ -28,7 +28,8 @@ var config = {
     contentBase: "./public",
     colors: true,
     historyApiFallback: true,
-    inline: true
+    inline: true,
+    port: 3333
   },
 }
 

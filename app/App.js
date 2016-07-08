@@ -1,9 +1,12 @@
+
 import React, {Component, PropTypes} from 'react';
 import {render} from 'react-dom';
+import { browserHistory, Router, Route, Link } from 'react-router'
 import { connect } from 'react-redux';
-import employeeStore from './employeeStore';
-import constants from './constants';
-import employeeactions from './employeeactions';
+import employeeStore from '../reducers/employeeStore';
+import constants from '../constants/constants';
+import employeeactions from '../actions/employeeactions';
+import { treeData } from './data';
 // Parent Component
 let empid="";
 
@@ -20,12 +23,12 @@ class App extends Component {
       alert("welcome editing");
       employeeStore.dispatch(employeeactions.editemployee(empid,this.refs.empfirstname.value,this.refs.emplastname.value,
       this.refs.designation.value,this.refs.active.value));
-      alert("Employee Id:" + empid   +"  details udpated successfully");
+      alert("Employee Id:" + empid   +"  details updated successfully");
         this.setState({ editing: false });
         this.refs.empfirstname.value="";
         this.refs.emplastname.value="";
         this.refs.designation.value="";
-        this.refs.active.checked= false;
+        this.refs.active.checked=false;
     }
     else {
       employeeStore.dispatch(employeeactions.addemployee(this.refs.empid.value,this.refs.empfirstname.value,this.refs.emplastname.value,
@@ -53,7 +56,7 @@ class App extends Component {
   return
   }
   }
-  onHandleEdit(id,firstname,lastname,designation,Active) {
+  onHandleEdit(id,firstname,lastname,designation,active) {
       alert("editing record");
       console.log(id);
       this.setState({ editing: true });
@@ -61,7 +64,7 @@ class App extends Component {
        this.refs.empfirstname.value=firstname;
       this.refs.emplastname.value=lastname
        this.refs.designation.value=designation;
-      this.refs.active.checked= Active;
+      this.refs.active.checked(active);
 
   }
 
@@ -71,6 +74,21 @@ class App extends Component {
     })
   }
   render() {
+    const treeData1 = treeData;
+    console.log(treeData1);
+    let ParentIds= [1002,2227,2229];
+    console.log(ParentIds[0]);
+    console.log(treeData1.children);
+    console.log(treeData1.children.length);
+    // console.log(treeData1.children[0]);
+      for (let i = 0; i < treeData1.children.length; i++) {
+        console.log(treeData1.children[i].id);
+        if ( treeData1.Children[i].id === ParentIds[i] ) {
+            console.log("parentIds found");
+        }
+      }
+
+
     const styles = {
           base: {
             border: '1px',
@@ -127,7 +145,7 @@ Designation: &nbsp;
 <option value="Font-end Developer">Font-end Developer</option>
 </select><br/>
 Active: &nbsp;
-<input type="checkbox"  ref="active"/><br/>
+<input type="checkbox"  ref="active" defaultChecked="" /><br/>
 <input type="submit"/>
 </form>
     </td>
@@ -149,17 +167,17 @@ Active: &nbsp;
       </thead>
         <tbody>
     {employeeStore.getState().map((employee,index) =><tr key={index}>
-      <td  className="tableBorder">{employee.id}</td>
+        <td  className="tableBorder">{employee.id}</td>
         <td  className="tableBorder">{employee.firstname}</td>
         <td className="tableBorder">{employee.lastname}</td>
         <td className="tableBorder">
-        <select defaultValue={employee.designation}>
+        <select  defaultValue={employee.designation}>
         <option value="Software Engineer">Software Engineer</option>
         <option value="Director">Director</option>
         <option value="Font-end Developer">Font-end Developer</option>
         </select>
         </td>
-        <td className="tableBorder"><input type="checkbox"/></td>
+        <td className="tableBorder"><input type="checkbox" defaultChecked={employee.active}/></td>
           <td className="tableBorder"><button className="btndanger" onClick={this.onHandleDelete.bind(this,employee.id)}>Delete</button></td>
           <td className="tableBorder"><button className="btnprimary" onClick={this.onHandleEdit.bind(this,employee.id,employee.firstname,employee.lastname,employee.designation,employee.active)}>Edit</button></td>
           </tr>)}
@@ -170,4 +188,5 @@ Active: &nbsp;
   }
 }
 
-render(<App />, document.getElementById('root'));
+export default App;
+// render(<App />, document.getElementById('root'));
