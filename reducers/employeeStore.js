@@ -31,13 +31,13 @@ let employeeReducer = (state = Employees, action) =>  {
     return state.filter(Employees => Employees.id !== action.empid);
     case constants.EDIT_EMPLOYEE:
     console.log("Edit Employee Details");
-    console.log(action.empid,action.emplastname,action.emplastname,action.designation,action.active);
+    console.log(action.empid,action.empfirstname,action.emplastname,action.designation,action.active);
     return   state.map(Employees =>
       Employees.id === action.empid ?
       {
       Employees ,
         id:action.empid,
-        firstname: action.emplastname,
+        firstname: action.empfirstname,
         lastname:action.emplastname,
         designation:action.designation,
         active: action.active

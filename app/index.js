@@ -1,8 +1,8 @@
   // Dependencies.
   import React from 'react';
   import ReactDOM from 'react-dom';
-  import createBrowserHistory from 'history/lib/createBrowserHistory';
-  import { Router, Route } from 'react-router';
+  // import createBrowserHistory from 'history/lib/createBrowserHistory';
+  import { Router, Route, browserHistory } from 'react-router';
 
   // Pages.
   import Homepage from './App';
@@ -10,7 +10,7 @@
 
   // Routes template.
   const template = (
-  	<Router history={createBrowserHistory()}>
+  	<Router history={browserHistory}>
       <Route path="/homepage" component={Homepage} title="Home Page" />
       <Route path="/" component={Loginpage} title="Login Page" />
   	</Router>

@@ -2,7 +2,7 @@
 import React from 'react';
 // Define class.
 import {Input, ButtonInput, Alert} from 'react-bootstrap';
-import { browserHistory } from 'react-router';
+import { browserHistory, router } from 'react-router';
 // Define class.
 class login extends React.Component {
   constructor(props) {
@@ -18,7 +18,8 @@ class login extends React.Component {
     const user = this.refs.txtUserName.getValue();
     const pass = this.refs.txtPassword.getValue();
     if (user === 'test' && pass === 'test') {
-      this.props.history.pushState(null, '/homepage');
+      // this.props.history.pushState(null, '/homepage');
+      this.props.history.push('/homepage');
     }else {
       this.setState({alertVisible: true});
     }
@@ -34,10 +35,9 @@ class login extends React.Component {
                 <div className="row text-center">
                   <h2>
                     ProcessMAP EHS System
-                    <br/>
-                    <h4>
-                      ProcessMAP Corporation
-                    </h4>
+                    <div>
+                    <h4>  ProcessMAP Corporation</h4>
+                    </div>
                   </h2>
                 </div>
               </div>

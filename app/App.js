@@ -1,4 +1,3 @@
-
 import React, {Component, PropTypes} from 'react';
 import {render} from 'react-dom';
 import { browserHistory, Router, Route, Link } from 'react-router'
@@ -6,7 +5,7 @@ import { connect } from 'react-redux';
 import employeeStore from '../reducers/employeeStore';
 import constants from '../constants/constants';
 import employeeactions from '../actions/employeeactions';
-import { treeData } from './data';
+
 // Parent Component
 let empid="";
 
@@ -74,20 +73,6 @@ class App extends Component {
     })
   }
   render() {
-    const treeData1 = treeData;
-    console.log(treeData1);
-    let ParentIds= [1002,2227,2229];
-    console.log(ParentIds[0]);
-    console.log(treeData1.children);
-    console.log(treeData1.children.length);
-    // console.log(treeData1.children[0]);
-      for (let i = 0; i < treeData1.children.length; i++) {
-        console.log(treeData1.children[i].id);
-        if ( treeData1.Children[i].id === ParentIds[i] ) {
-            console.log("parentIds found");
-        }
-      }
-
 
     const styles = {
           base: {
