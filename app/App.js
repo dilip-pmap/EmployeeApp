@@ -45,10 +45,10 @@ class App extends Component {
   onHandleDelete(id) {
   let isConfirm=  confirm("are you sure to delete this record ?")
   if(isConfirm === true)
-  {console.log(id);
-    alert(id);
+  {
+
     let empid=id;
-    alert(empid);
+
     employeeStore.dispatch(employeeactions.deleteemployee(empid));
   }
   else {
@@ -56,8 +56,7 @@ class App extends Component {
   }
   }
   onHandleEdit(id,firstname,lastname,designation,active) {
-      alert("editing record");
-      console.log(id);
+    
       this.setState({ editing: true });
       empid=id;
        this.refs.empfirstname.value=firstname;

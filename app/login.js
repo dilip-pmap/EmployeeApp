@@ -2,7 +2,7 @@
 import React from 'react';
 // Define class.
 import {Input, ButtonInput, Alert} from 'react-bootstrap';
-import { browserHistory, router } from 'react-router';
+// import { browserHistory, router } from 'react-router';
 // Define class.
 class login extends React.Component {
   constructor(props) {

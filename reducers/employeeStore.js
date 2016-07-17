@@ -12,7 +12,7 @@ let Employees = [{"id":"1","firstname":"Dilip","lastname":"Gudivada","designatio
 {"id":"7","firstname":"Jessica","lastname":"Nace","designation":"Font-end Developer","active":true}];
 
 let employeeReducer = (state = Employees, action) =>  {
-  console.log(action);
+  // console.log(action);
   switch(action.type) {
     case constants.ADD_EMPLOYEE:
     console.log("Add Employee Details");
