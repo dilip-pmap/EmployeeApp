@@ -30,15 +30,44 @@ class EmpList extends Component {
             alert('Please select atleast one row to delete the record');
           }
     }
+    alphabetizeByKey(array = [], key) {
+    array.sort((a, b) => {
+      if (a.hasOwnProperty(key) && b.hasOwnProperty(key)) {
+        return a[key].localeCompare(b[key]);
+      }
+    });
+    return array;
+  }
+  descalphabetizeByKey(array = [], key) {
+  array.sort((a, b) => {
+    if (a.hasOwnProperty(key) && b.hasOwnProperty(key)) {
+      return b[key].localeCompare(a[key]);
+    }
+  });
+  return array;
+}
+    handlesort(e){
+      e.preventDefault();
+      // console.log(this.alphabetizeByKey(this.state.Employees,"firstname"));
+    this.setState(this.alphabetizeByKey(this.state.Employees,"firstname"));
+        }
+        handledescsort(e){
+          e.preventDefault();
+          // console.log(this.alphabetizeByKey(this.state.Employees,"firstname"));
+        this.setState(this.descalphabetizeByKey(this.state.Employees,"firstname"));
+            }
   render() {
     return (
       <div className="container">
-      <h5>Users Lists</h5><button className="btnprimary" onClick={this.handleDelete.bind(this)}>delete</button>
-      <table className="tableBorder">
+      <h5>Users Lists</h5><button className="btnprimary pull-right" onClick={this.handleDelete.bind(this)}>delete</button>
+      <table className="tableBorder" width="800">
         <thead className="tableheader">
           <tr>
               <th>&nbsp;#&nbsp;</th>
-            <th>&nbsp;First Name&nbsp;</th>
+            <th>&nbsp;First Name&nbsp;
+            <a onClick={this.handlesort.bind(this)}>Asc Sorting</a>&nbsp;&nbsp;
+            <a onClick={this.handledescsort.bind(this)}>Desc Sorting</a>
+            </th>
             <th>&nbsp;Last Name&nbsp;</th>
             <th>&nbsp;User Name&nbsp;</th>
             </tr>
@@ -46,7 +75,7 @@ class EmpList extends Component {
             <tbody>
         {this.state.Employees.map((employee,index) =><tr key={index}>
           <td className="tableBorder">
-          <input type="checkbox" ref="complete" onChange={this.handleChange.bind(this,employee.id)}/></td>
+          <input type="checkbox" ref={employee.id} onChange={this.handleChange.bind(this,employee.id)}/></td>
             <td  className="tableBorder">{employee.firstname}</td>
             <td className="tableBorder">{employee.lastname}</td>
             <td className="tableBorder">{employee.username}</td>
