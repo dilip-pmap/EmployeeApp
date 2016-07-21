@@ -7,12 +7,15 @@
   // Pages.
   import Homepage from './App';
   import Loginpage from './login';
-
+  import Formpage from './Form';
+  import Listpage from './EmpList';
   // Routes template.
   const template = (
   	<Router history={browserHistory}>
       <Route path="/homepage" component={Homepage} title="Home Page" />
       <Route path="/" component={Loginpage} title="Login Page" />
+      <Route path="/Form" component={Formpage} title="Form Page" />
+      <Route path="/List" component={Listpage} title="list Page" />
   	</Router>
   );
 
