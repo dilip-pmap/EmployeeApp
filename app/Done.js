@@ -7,25 +7,33 @@ class Done extends Component {
         Done:[{"id":1,"data":"learn the basics of react"}],
       };
     }
-    handleDelete(item,index) {
-      console.log(item);
-      let newData = this.state.Done.slice(); //copy array
-       this.state.Done.forEach( item => {
-         newData.splice(Number(index), 1);
-       });
-       //remove element
-      console.log(newData);
-      this.setState({Done: newData}); //update state
+    handleDelete(itemvalue,index) {
+      console.log(itemvalue);
+      let newState=this.state.Done.filter(item => item.data !== itemvalue.data);
+      this.setState({Done: newState});
+      // console.log(item);
+      // let newData = this.state.Done.slice(); //copy array
+      //  this.state.Done.forEach( item => {
+      //    newData.splice(Number(index), 1);
+      //  });
+      //  //remove element
+      // console.log(newData);
+      // this.setState({Done: newData}); //update state
     }
     handleAdd(){
       if(!this.refs.done.value){
         alert("Please enter Done Task");
         return false;
       } else {
+        if(this.state.Done.filter(item => item.data === this.refs.done.value).length) {
+          alert("already Exists in your Done Task");
+        } else {
         this.state.Done.push({
           "data": this.refs.done.value,
         });
         this.setState(this.state);
+        this.refs.done.value="";
+      }
       }
     }
   render() {

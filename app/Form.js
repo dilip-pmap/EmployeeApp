@@ -120,8 +120,8 @@ class Form extends Component {
       <option value="Green">Green</option>
       </select><br/><br/>
       <input type="checkbox"  ref="employeed" defaultChecked="" />&nbsp;Employeed<br/>
-      Note:<br/>
-      <textarea ref="note" /><br/><br/>
+      Note:&nbsp;
+      <textarea ref="note" required/><br/><br/>
       <button className="btnprimary" onClick={this.handleSubmit.bind(this)}>Submit</button>&nbsp;&nbsp;
       <button className="btnsuccess" onClick={this.handleClear.bind(this)}>Clear</button>
       </form>

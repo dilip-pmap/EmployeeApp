@@ -7,27 +7,36 @@ class ToDo extends Component {
         ToDo:[{"data":"write react App"}],
       };
     }
-    handleDelete(item,index) {
-      console.log(item);
-      let newData = this.state.ToDo.slice(); //copy array
-       this.state.ToDo.forEach( item => {
-         newData.splice(Number(index), 1);
-       });
-       //remove element
-      console.log(newData);
-      this.setState({ToDo: newData}); //update state
+    handleDelete(itemvalue,index) {
+      console.log(itemvalue);
+      let newState=this.state.ToDo.filter(item => item.data !== itemvalue.data);
+      this.setState({ToDo: newState});
+      // let newData = this.state.ToDo.slice(); //copy array
+      //  this.state.ToDo.forEach( item => {
+      //    newData.splice(Number(index), 1);
+      //  });
+      //  //remove element
+      // console.log(newData);
+      // this.setState({ToDo: newData}); //update state
     }
     handleAdd(){
       if(!this.refs.todo.value){
         alert("Please enter ToDo Task");
         return false;
       } else {
+        console.log(this.state.ToDo.filter(item => item.data === this.refs.todo.value));
+        if(this.state.ToDo.filter(item => item.data === this.refs.todo.value).length) {
+          alert("already Exists in your ToDO Task");
+        }
+        else {
         this.state.ToDo.push({
           "data": this.refs.todo.value,
         });
         this.setState(this.state);
+        this.refs.todo.value="";
       }
     }
+  }
   render() {
     return (
     <table width="400">
