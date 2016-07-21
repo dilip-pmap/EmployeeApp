@@ -40,11 +40,6 @@ class ToDo extends Component {
   render() {
     return (
     <table width="400">
-    <thead>
-    <tr>
-      <th>Todo</th>
-      </tr>
-      </thead>
       <tbody>
         {this.state.ToDo.map((item,index) =><tr key={index}>
         <td>

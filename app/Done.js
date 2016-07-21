@@ -39,11 +39,6 @@ class Done extends Component {
   render() {
     return (
       <table width="400">
-      <thead>
-      <tr>
-        <th>Done</th>
-        </tr>
-        </thead>
         <tbody>
         {this.state.Done.map((item,index) =><tr key={index}>
         <td>

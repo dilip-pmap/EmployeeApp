@@ -14,8 +14,8 @@ class Main extends Component {
         </thead>
         <tbody>
         <tr>
-        <td className="tableBorder"><ToDo/></td>
-        <td className="tableBorder"><Done/></td>
+        <td className="tableBorder"><h1>ToDO</h1><br/><ToDo/></td>
+        <td className="tableBorder"><h1>Done</h1><br/><Done/></td>
         </tr>
     </tbody>
       </table>
