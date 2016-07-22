@@ -1,15 +1,16 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 let ids=[];
+let sorting= true;
 class EmpList extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        Employees: [{"id":"1","firstname":"Dilip","lastname":"Gudivada","username":"dgudivada"},
-       {"id":"2","firstname":"Ramesh","lastname":"Kodam","username":"rkodam"},
-       {"id":"3","firstname":"Marcelo","lastname":"Paiva","username":"mpaiva"},
-       {"id":"4","firstname":"Alessandro","lastname":"Barroso","username":"abarroso"},
-       {"id":"5","firstname":"Michel","lastname":"Marrache","username":"mmarache"}],
+        Employees: [{"id":"1","firstname":"Dilip","lastname":"Gudivada","username":"dgudivada", "selected": false },
+       {"id":"2","firstname":"Ramesh","lastname":"Kodam","username":"rkodam", "selected": false},
+       {"id":"3","firstname":"Marcelo","lastname":"Paiva","username":"mpaiva", "selected": false},
+       {"id":"4","firstname":"Alessandro","lastname":"Barroso","username":"abarroso", "selected": false},
+       {"id":"5","firstname":"Michel","lastname":"Marrache","username":"mmarache", "selected": false}],
       };
     }
     handleChange(id){
@@ -54,14 +55,22 @@ class EmpList extends Component {
 }
     handlesort(e){
       e.preventDefault();
+      if(sorting){
       // console.log(this.alphabetizeByKey(this.state.Employees,"firstname"));
     this.setState(this.alphabetizeByKey(this.state.Employees,"firstname"));
-        }
-        handledescsort(e){
-          e.preventDefault();
-          // console.log(this.alphabetizeByKey(this.state.Employees,"firstname"));
+  sorting = !sorting;
+  } else {
         this.setState(this.descalphabetizeByKey(this.state.Employees,"firstname"));
-            }
+        sorting = !sorting;
+  }
+        }
+        // handledescsort(e){
+        //   e.preventDefault();
+        //   // console.log(this.alphabetizeByKey(this.state.Employees,"firstname"));
+        // this.setState(this.descalphabetizeByKey(this.state.Employees,"firstname"));
+        //     }
+        //     <a onClick={this.handlesort.bind(this)}>Asc Sorting</a>&nbsp;&nbsp;
+        //     <a onClick={this.handledescsort.bind(this)}>Desc Sorting</a>
   render() {
     return (
       <div className="container">
@@ -70,10 +79,7 @@ class EmpList extends Component {
         <thead className="tableheader">
           <tr>
               <th>&nbsp;#&nbsp;</th>
-            <th>&nbsp;First Name&nbsp;
-            <a onClick={this.handlesort.bind(this)}>Asc Sorting</a>&nbsp;&nbsp;
-            <a onClick={this.handledescsort.bind(this)}>Desc Sorting</a>
-            </th>
+            <th><a onClick={this.handlesort.bind(this)}>First Name</a></th>
             <th>&nbsp;Last Name&nbsp;</th>
             <th>&nbsp;User Name&nbsp;</th>
             </tr>
