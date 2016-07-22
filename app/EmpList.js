@@ -19,11 +19,17 @@ class EmpList extends Component {
     handleDelete() {
       console.log(ids.length);
            if (ids.length) {
+            //  let newState=[];
+            //  ids.forEach( item => {
+            //   newState =this.state.Employees.filter(employee => employee.id !== item.id);
+            //   });
+            // this.setState({Employees: newState});
             let newData = this.state.Employees.slice(); //copy array
              ids.forEach( item => {
-               newData.splice(Number(item.id-1), 1);
+              //  newData.splice((item.id-1), 1);
+              newData =this.state.Employees.filter(employee => employee.id !== item.id);
              });
-             //remove element
+            //  remove element
             console.log(newData);
             this.setState({Employees: newData}); //update state
           } else {
@@ -75,7 +81,7 @@ class EmpList extends Component {
             <tbody>
         {this.state.Employees.map((employee,index) =><tr key={index}>
           <td className="tableBorder">
-          <input type="checkbox" ref={employee.id} onChange={this.handleChange.bind(this,employee.id)}/></td>
+          <input type="checkbox" onChange={this.handleChange.bind(this,employee.id)} /></td>
             <td  className="tableBorder">{employee.firstname}</td>
             <td className="tableBorder">{employee.lastname}</td>
             <td className="tableBorder">{employee.username}</td>
