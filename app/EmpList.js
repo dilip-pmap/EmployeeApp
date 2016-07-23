@@ -14,8 +14,15 @@ class EmpList extends Component {
       };
     }
     handleChange(id){
-      ids.push({id});
-      console.log(ids);
+      if(!ids[id-1]){
+        ids.push({id});
+      }
+      else {
+         ids.splice(id-1, 1);
+      }
+     console.log(ids);
+      // ids.push({id});
+      // console.log(ids);
     }
     handleDelete() {
       console.log(ids.length);
@@ -33,6 +40,7 @@ class EmpList extends Component {
             //  remove element
             console.log(newData);
             this.setState({Employees: newData}); //update state
+            ids=[];
           } else {
             alert('Please select atleast one row to delete the record');
           }
