@@ -10,6 +10,7 @@
   import Formpage from './Form';
   import Listpage from './EmpList';
   import ToDoPage from './Main';
+  import IFramePage from './IFrame'
   // Routes template.
   const template = (
   	<Router history={browserHistory}>
@@ -18,6 +19,7 @@
       <Route path="/Form" component={Formpage} title="Form Page" />
       <Route path="/List" component={Listpage} title="list Page" />
       <Route path="/ToDoApp" component={ToDoPage} title="ToDo App Page" />
+      <Route path="/IFrame" component={IFramePage} title="IFrame Page" />
   	</Router>
   );
 
