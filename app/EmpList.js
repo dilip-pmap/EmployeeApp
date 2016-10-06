@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {render} from 'react-dom';
 let ids=[];
 let sorting= true;
 class EmpList extends Component {

@@ -34,9 +34,9 @@ class login extends React.Component {
               <div className="panel-heading">
                 <div className="row text-center">
                   <h2>
-                    ProcessMAP EHS System
+                    One Hub learning
                     <div>
-                    <h4>  ProcessMAP Corporation</h4>
+                    <h4> Virtul Learning</h4>
                     </div>
                   </h2>
                 </div>
