@@ -15,6 +15,7 @@ class login extends React.Component {
   handleSubmit(e) {
     this.setState({alertVisible: false});
     e.preventDefault();
+    console.log(this.refs.txtUserName.getValue());
     const user = this.refs.txtUserName.getValue();
     const pass = this.refs.txtPassword.getValue();
     if (user === 'test' && pass === 'test') {
@@ -24,10 +25,17 @@ class login extends React.Component {
       this.setState({alertVisible: true});
     }
   }
+
+
   // Render method.
   render() {
+    let styles = {
+      base: {
+        marginTop:200
+      }
+    }
     return (
-      <div className="container">
+      <div className="container" style={styles.base}>
         <div className="row">
           <div className="col-md-12">
             <div className="panel panel-primary">
@@ -48,23 +56,23 @@ class login extends React.Component {
             <div className="row">
               <div className="col-md-3"></div>
               <div className="col-md-4">
-                <form role="form" onSubmit={this.handleSubmit.bind(this)}>
+                <form role="form" >
                   <Input type="text" ref="txtUserName"
                             placeholder="User Name" required/>
                         <Input type="password"
                               placeholder="Password" ref="txtPassword" required/>
-                            <Input type="select">
+                            {    /* <Input type="select">
                                 <option value="Chinese">Chinese</option>
                                 <option value="English">English</option>
                                 <option value="French">French</option>
                                 <option value="German">German</option>
                                 <option value="Spanish">Spanish</option>
-                              </Input>
-                        <ButtonInput type="submit" value="Login" bsStyle="primary" className="form-control" />
+                              </Input>*/ }
+                        <ButtonInput type="submit" value="Login" bsStyle="primary" className="form-control" onClick={this.handleSubmit.bind(this)} />
                         </form>
               </div>
               <div className="col-md-3">
-                <p> <span> System Updates:</span>
+            {/*   <p> <span> System Updates:</span>
                 <br/>
                 <a src="#">Check your browser compatibility.</a></p>
                   <p> <span> Support:</span>
@@ -72,7 +80,7 @@ class login extends React.Component {
                   <a src="#">Lost your login or password?</a></p>
                     <p> <span>Email Support:</span>
                     <br/>
-                    <a src="#">Click here to send email to support.</a></p>
+                    <a src="#">Click here to send email to support.</a></p>*/}
           </div>
             <div className="col-md-2"></div>
             </div>
@@ -93,7 +101,7 @@ class login extends React.Component {
                           </div>
                           </div>
                           <div className="panel-footer text-right primary">
-<p>ProcessMAP Corporation &nbsp; &copy; 2016</p>
+<p>One Hub Learning &nbsp; &copy; 2016</p>
                           </div>
                           </div>
                           </div>

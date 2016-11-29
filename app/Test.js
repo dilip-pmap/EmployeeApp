@@ -3,7 +3,8 @@ class Test extends Component {
 
 render () {
 return (
-<div>
+<div className="container">
+  <div clasName="row">
 <nav className="navbar navbar-default navbar-fixed-top">
   <div className="container">
     <div className="navbar-header">
@@ -12,7 +13,7 @@ return (
         <span className="icon-bar"></span>
         <span className="icon-bar"></span>
       </button>
-      <a className="navbar-brand" href="#">Logo</a>
+      <a className="navbar-brand" href="#">One Hub Learning</a>
     </div>
     <div className="collapse navbar-collapse" id="myNavbar">
       <ul className="nav navbar-nav navbar-right">
@@ -25,6 +26,15 @@ return (
     </div>
   </div>
 </nav>
+</div>
+<br/>
+<br/>
+<div clasName="row">
+<div clasName="jumbotron text-center">
+  <h1>One Hub Learning</h1>
+  <p>Virtual Learning </p>
+</div>
+</div>
 </div>
 );
 }
