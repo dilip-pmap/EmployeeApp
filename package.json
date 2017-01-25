@@ -73,7 +73,9 @@
     "webpack": "^1.12.12",
     "webpack-dev-server": "^1.14.1",
     "webpack-require": "0.0.16",
-    "whatwg-fetch": "^0.11.0"
+    "whatwg-fetch": "^0.11.0",
+    "highcharts": "^4.2.6",
+    "highcharts-more": "^0.1.2"
   },
   "repository": {
     "type": "git",

@@ -56,7 +56,7 @@ class App extends Component {
   }
   }
   onHandleEdit(id,firstname,lastname,designation,active) {
-    
+
       this.setState({ editing: true });
       empid=id;
        this.refs.empfirstname.value=firstname;
