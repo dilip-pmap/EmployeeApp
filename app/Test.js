@@ -7,7 +7,7 @@ render () {
     let myList = [
       { name: 'abc', age: 50 },
       { name: 'xyz', age: 40, hobby: 'cricket'},
-      { hobby: 'football'}
+      { hobby: 'football', xyz: 'sjfjfhj'}
     ];
 
 

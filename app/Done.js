@@ -38,22 +38,22 @@ class Done extends Component {
     }
   render() {
     return (
-      <table width="400">
-        <tbody>
-        {this.state.Done.map((item,index) =><tr key={index}>
-        <td>
-        <div>
-        <label>{item.data}</label><a onClick={this.handleDelete.bind(this,item,index)}>&nbsp;&nbsp;<font color="red">X</font></a>
-        </div>
-        </td>
-        </tr>)}
-        <tr>
-        <td>
-        <input type="text" ref="done" /> &nbsp;
-        <button className="btnprimary" onClick={this.handleAdd.bind(this)}>Add</button>
-        </td>
-        </tr>
-        </tbody>
+        <table>
+          <tbody>
+          {this.state.Done.map((item,index) =><tr key={index}>
+          <td>
+          <div>
+          <label>{item.data}</label><a onClick={this.handleDelete.bind(this,item,index)}>&nbsp;&nbsp;<font color="red">X</font></a>
+          </div>
+          </td>
+          </tr>)}
+          <tr>
+          <td>
+          <input type="text" ref="done" /> &nbsp;
+          <button className="btnprimary" onClick={this.handleAdd.bind(this)}>Add</button>
+          </td>
+          </tr>
+          </tbody>
         </table>
     );
   }

@@ -1,13 +1,6 @@
 // Dependencies.
 import React from 'react';
 import Highcharts from 'highcharts';
-// import _ from 'lodash';
-
-// UI components.
-// import { Button } from 'react-bootstrap';
-
-// Utility methods.
-// import utils from '../../utils';
 /* eslint-disable no-alert, no-console */
 
 // Define class.
@@ -29,15 +22,15 @@ class Highchart extends React.Component {
         type: 'bar'
       },
       title: {
-        text: ''
+        text: 'My Techinical Skills Rating  out of 10 using npm HighCharts'
       },
       subtitle: {
         text: ''
       },
       xAxis: {
-        categories: ['Head', 'Arm_Right', 'Back/dorsal', 'Arm(s), Lower_Left', 'Buttock(s)'],
+        categories: ['React', 'Angular', 'Sql Server', 'SSRS', 'HTML5'],
         title: {
-          text: null
+          text: null,
         }
       },
       yAxis: {
@@ -76,7 +69,7 @@ class Highchart extends React.Component {
       },
       series: [{
         name: 'Count',
-        data: [10, 18, 16, 10, 9]
+        data: [6, 6, 8, 7, 6]
       }] };
 
     return chartOptions;
@@ -106,27 +99,13 @@ class Highchart extends React.Component {
 // }
   // When the DOM is ready, create the chart.
   componentDidMount() {
-    const { modules, options, type, widgetSettings } = this.props;
+    const { modules, options, type } = this.props;
     const { chartId } = this.state;
-    const chartType = widgetSettings ? widgetSettings.WidgetSubType : null;
-    // ToDo: need to remove this.getStaticOptions(); after demo. and directly use 'options' and remove '_options'
-    // const _options = options ? options : this.getStaticOptions();
-    // Remove highchart.com link.
-    // const legend = { chart: { height: 360, type: `${chartType}` }, credits: { enabled: false}, legend: { enabled: false}};
-    // _.extend(options, legend);
-
-    // Extend Highcharts with modules
     if (modules) {
       modules.forEach(module => {
         module(Highcharts);
       });
     }
-    // Once Rest API Ready for  Chart Options Ready we need to remove below condition
-    // let PieOptions = {};
-    // if (chartType === 'pie') {
-    //   PieOptions = this.getPieOptions(options);
-    //   _.extend(PieOptions, legend);
-    // }
 
     // Set container which the chart should render to.
     this.chart = new Highcharts[type || 'Chart'](
@@ -135,25 +114,11 @@ class Highchart extends React.Component {
     );
     // this.chart.setSize(350, 350);
     // this.props.onLoadCallback();
+    this.chart.setSize(1400,750);
   }
 
   componentDidUpdate() {
     const { modules, type } = this.props;
-    // const { modules, options, type, widgetSettings } = this.props;
-    // const { chartId } = this.state;
-    // const chartType = widgetSettings ? widgetSettings.WidgetSubType : null;
-  //  const chartType = options.chart.type;
-    // ToDo: need to remove this.getStaticOptions(); after demo. and directly use 'options' and remove '_options'
-    // const _options = options ? options : this.getStaticOptions();
-    // Remove highchart.com link.
-    // const legend = { chart: { height: 360, type: `${chartType}` }, credits: { enabled: false}, legend: { enabled: false}};
-    // _.extend(options, legend);
-    // // Once Rest API Ready for  Chart Options Ready we need to remove below condition
-    // let PieOptions = {};
-    // if (chartType === 'pie') {
-    //   PieOptions = this.getPieOptions(options);
-    //   _.extend(PieOptions, legend);
-    // }
         // chartType === 'pie' ? PieOptions : options // once Rest API  Ready for chart options we will remove this condition then  only options
     // Extend Highcharts with modules
     if (modules) {
@@ -161,13 +126,10 @@ class Highchart extends React.Component {
         module(Highcharts);
       });
     }
-    // if (this.chartType !== widgetSettings.WidgetSubType) {
       this.chart = new Highcharts[type || 'Chart'](
         chartId,
         this.getStaticOptions()
       );
-    //  this.chartType = widgetSettings.WidgetSubType;
-    // }
   }
 
   // Destroy chart before unmount.
@@ -178,16 +140,8 @@ class Highchart extends React.Component {
   // Render method.
   render() {
     const { chartId } = this.state;
-
-    // <div>
-    //   <div id={chartId} />
-    //   <Button onClick={()=>this.chart.setSize(300, 300)}>Small</Button>
-    //   <Button onClick={()=>this.chart.setSize(600, 300)}>Large</Button>
-    // </div>
-
-
     return (
-          <div id={chartId} />
+          <div id={chartId}  />
     );
   }
 }
@@ -200,6 +154,4 @@ Highchart.propTypes = {
 
 // Export.
 export default Highchart;
-
-
 /* eslint-enable no-alert, no-console */

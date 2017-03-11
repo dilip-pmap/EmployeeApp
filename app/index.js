@@ -16,14 +16,14 @@
   // Routes template.
   const template = (
   	<Router history={browserHistory}>
-      <Route path="/homepage" component={Homepage} title="Home Page" />
+      <Route path="/Homepage" component={Homepage} title="Home Page" />
       <Route path="/Login" component={Loginpage} title="Login Page" />
       <Route path="/Form" component={Formpage} title="Form Page" />
       <Route path="/List" component={Listpage} title="list Page" />
       <Route path="/ToDoApp" component={ToDoPage} title="ToDo App Page" />
       <Route path="/IFrame" component={IFramePage} title="IFrame Page" />
       <Route path="/Chart" component={Chart} title="IFrame Page" />
-      <Route path="/" component={TestPage} title="Test Page"/>
+      <Route path="/" component={ToDoPage} title="Test Page"/>
   	</Router>
   );
 
