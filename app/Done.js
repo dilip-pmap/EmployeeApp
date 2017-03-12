@@ -50,7 +50,7 @@ class Done extends Component {
           <tr>
           <td>
           <input type="text" ref="done" /> &nbsp;
-          <button className="btnprimary" onClick={this.handleAdd.bind(this)}>Add</button>
+          <button className="btn btn-success" onClick={this.handleAdd.bind(this)}>Add</button>
           </td>
           </tr>
           </tbody>

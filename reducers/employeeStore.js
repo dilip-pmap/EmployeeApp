@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { createStore } from 'redux';
 import constants from '../constants/constants';
 
-let Employees = [{"id":"1","firstname":"Dilip","lastname":"Gudivada","designation":"Software Engineer","active":true}];
+let Employees = [{"id":"1","firstname":"x","lastname":"x","designation":"Software Engineer","active":true}];
 
 let employeeReducer = (state = Employees, action) =>  {
   // console.log(action);

@@ -5,11 +5,8 @@ class EmpList extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        Employees: [{"id":"1","firstname":"Dilip","lastname":"Gudivada","username":"dgudivada", "selected": false },
-       {"id":"2","firstname":"Ramesh","lastname":"Kodam","username":"rkodam", "selected": false},
-       {"id":"3","firstname":"Marcelo","lastname":"Paiva","username":"mpaiva", "selected": false},
-       {"id":"4","firstname":"Alessandro","lastname":"Barroso","username":"abarroso", "selected": false},
-       {"id":"5","firstname":"Michel","lastname":"Marrache","username":"mmarache", "selected": false}],
+        Employees: [{"id": "1","firstname": "a","lastname": "c","username": "ac", "selected": false },
+       {"id": "2","firstname": "b","lastname": "d","username": "bd", "selected": false}]
       };
     }
     handleChange(id){
@@ -81,6 +78,7 @@ class EmpList extends Component {
   render() {
     return (
       <div className="container">
+        <div style={{textAlign: 'right'}}><a href="/"> {'<< Back'}</a></div>  
       <h5>Users Lists</h5><button className="btnprimary pull-right" onClick={this.handleDelete.bind(this)}>delete</button>
       <table className="tableBorder" width="800">
         <thead className="tableheader">

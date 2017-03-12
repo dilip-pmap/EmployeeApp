@@ -90,6 +90,7 @@ class Form extends Component {
   render() {
     return (
       <div className="container">
+        <div style={{textAlign: 'right'}}><a href="/"> {'<< Back'}</a></div>  
       <table >
       <tbody>
       <tr>

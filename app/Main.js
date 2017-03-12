@@ -7,19 +7,29 @@ class Main extends Component {
   render() {
     return (
       <div className="container">
+        <div style={{textAlign: 'right'}}>
+        <strong>Dilip Gudivada</strong>  <br/>
+          Software Engineer: Full Stack Developer
+          <br/>
+          My Github Account:  <a href="javascript:window.open('https://github.com/dilip-pmap')">Click here !!!</a>
+        </div>
         <h2 style={{textAlign: 'left'}}>This Site is build with react, react-dom, react-redux, webpack, highcharts and node js</h2>
-          <div style={{textAlign: 'right'}}>
-          <strong>Dilip Gudivada</strong>  <hr/>
-            Software Engineer: Full Stack Developer
-            <br/>
-            My Github Account:  <a href="javascript:window.open('https://github.com/dilip-pmap')">Click here !!!</a>
-          </div>
           <hr/>
           <Chart/>
           <hr/>
-            Form and Grid Example With React <a href="/Homepage" style={{color: 'blue'}}>Click here !!!</a>
+          <div className="row">
+            <div className="col-sm-12">
+              <u><strong>Example Sample Pages</strong></u><br/>
+              Form and Grid Example With React <a href="/Homepage">Click here !!!</a><br/>
+              Login Page <a href="/Login">Click here !!!</a><br/>
+              Employee Form <a href="/Form">Click here !!!</a><br/>
+              Employee List <a href="/List">Click here !!!</a><br/>
+            </div>
+          </div>
+          <br/>
+          <u><strong>To Do App</strong></u><br/>
           <div className="table-responsive">
-      <table className=" table tableBorder">
+      <table className=" table table-bordered table-striped">
       <thead className="tableheader">
         <tr>
             <th colSpan="2">To Do App</th>

@@ -102,7 +102,7 @@ class App extends Component {
         }
 return (
   <div>
-<div style={{textAlign: 'right'}}><a href="/" style={{color: 'blue'}}> {'<< Back'}</a></div>   
+<div style={{textAlign: 'right'}}><a href="/"> {'<< Back'}</a></div>   
     <table >
   <tbody>
     <tr>

@@ -31,11 +31,12 @@ class login extends React.Component {
   render() {
     let styles = {
       base: {
-        marginTop:200
+        marginTop:60
       }
     }
     return (
       <div className="container" style={styles.base}>
+        <div style={{textAlign: 'right'}}><a href="/">{'<< Back'}</a></div>  
         <div className="row">
           <div className="col-md-12">
             <div className="panel panel-primary">
@@ -101,7 +102,7 @@ class login extends React.Component {
                           </div>
                           </div>
                           <div className="panel-footer text-right primary">
-<p>One Hub Learning &nbsp; &copy; 2016</p>
+<p>One Hub Learning &nbsp; &copy; 2017</p>
                           </div>
                           </div>
                           </div>

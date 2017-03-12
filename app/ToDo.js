@@ -11,13 +11,6 @@ class ToDo extends Component {
       console.log(itemvalue);
       let newState=this.state.ToDo.filter(item => item.data !== itemvalue.data);
       this.setState({ToDo: newState});
-      // let newData = this.state.ToDo.slice(); //copy array
-      //  this.state.ToDo.forEach( item => {
-      //    newData.splice(Number(index), 1);
-      //  });
-      //  //remove element
-      // console.log(newData);
-      // this.setState({ToDo: newData}); //update state
     }
     handleAdd(){
       if(!this.refs.todo.value){
@@ -51,7 +44,7 @@ class ToDo extends Component {
         <tr>
       <td>
       <input type="text" ref="todo"/> &nbsp;
-      <button className="btnprimary" onClick={this.handleAdd.bind(this)}>Add</button>
+      <button className="btn btn-success" onClick={this.handleAdd.bind(this)}>Add</button>
       </td>
       </tr>
       </tbody>

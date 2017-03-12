@@ -24,21 +24,14 @@ class Highchart extends React.Component {
       title: {
         text: 'My Techinical Skills Rating  out of 10 using npm HighCharts'
       },
-      subtitle: {
-        text: ''
-      },
       xAxis: {
         categories: ['React', 'Angular', 'Sql Server', 'SSRS', 'HTML5'],
         title: {
-          text: null,
+          text: 'rating',
         }
       },
       yAxis: {
         min: 0,
-        title: {
-          text: 'Count',
-          align: 'high'
-        },
         labels: {
           overflow: 'justify'
         }
@@ -68,7 +61,7 @@ class Highchart extends React.Component {
         enabled: false
       },
       series: [{
-        name: 'Count',
+        name: 'Rating',
         data: [6, 6, 8, 7, 6]
       }] };
 
@@ -114,7 +107,7 @@ class Highchart extends React.Component {
     );
     // this.chart.setSize(350, 350);
     // this.props.onLoadCallback();
-    this.chart.setSize(1400,750);
+    // this.chart.setSize(600,600);
   }
 
   componentDidUpdate() {
