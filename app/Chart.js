@@ -2,7 +2,7 @@
 import React from 'react';
 import Highcharts from 'highcharts';
 /* eslint-disable no-alert, no-console */
-
+let chartType = 'bar';
 // Define class.
 class Highchart extends React.Component {
   constructor() {
@@ -16,10 +16,10 @@ class Highchart extends React.Component {
     this.chartType = '';
   }
 
-  getStaticOptions() {
+  getStaticOptions(chartType) {
     const chartOptions = {
       chart: {
-        type: 'bar'
+        type: chartType
       },
       title: {
         text: 'My Techinical Skills Rating  out of 10 using npm HighCharts'
@@ -68,28 +68,28 @@ class Highchart extends React.Component {
     return chartOptions;
   }
 
-// getPieOptions(options) {
-//   let PieOptions = {};
-//   let seriesdata = options.series[0].data;
-//   let categories = options.xAxis.categories;
-//   let seriesname = options.series[0].name;
-//   let data = [];
-//   let series = [];
-//   for ( let i = 0; i < seriesdata.length - 1; i++ ) {
-//     data.push({name: categories[i], y: seriesdata[i]});
-//   }
-//   series.push({name: seriesname, colorByPoint: true, data});
-//   PieOptions = {series};
-//   _.extend(PieOptions, {title: { text: null
-//         }, plotOptions: {pie: { allowPointSelect: true,
-//                 cursor: 'pointer',
-//                 dataLabels: {enabled: true
-//                 },
-//                 showInLegend: true
-//             }
-//         }});
-//   return PieOptions;
-// }
+getPieOptions(options) {
+  let PieOptions = {};
+  let seriesdata = options.series[0].data;
+  let categories = options.xAxis.categories;
+  let seriesname = options.series[0].name;
+  let data = [];
+  let series = [];
+  for ( let i = 0; i < seriesdata.length - 1; i++ ) {
+    data.push({name: categories[i], y: seriesdata[i]});
+  }
+  series.push({name: seriesname, colorByPoint: true, data});
+  PieOptions = {series};
+  _.extend(PieOptions, {title: { text: null
+        }, plotOptions: {pie: { allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {enabled: true
+                },
+                showInLegend: true
+            }
+        }});
+  return PieOptions;
+}
   // When the DOM is ready, create the chart.
   componentDidMount() {
     const { modules, options, type } = this.props;
@@ -103,38 +103,64 @@ class Highchart extends React.Component {
     // Set container which the chart should render to.
     this.chart = new Highcharts[type || 'Chart'](
       chartId,
-      this.getStaticOptions()
+      this.getStaticOptions(chartType)
     );
     // this.chart.setSize(350, 350);
     // this.props.onLoadCallback();
     // this.chart.setSize(600,600);
   }
 
-  componentDidUpdate() {
-    const { modules, type } = this.props;
-        // chartType === 'pie' ? PieOptions : options // once Rest API  Ready for chart options we will remove this condition then  only options
-    // Extend Highcharts with modules
-    if (modules) {
-      modules.forEach(module => {
-        module(Highcharts);
-      });
-    }
-      this.chart = new Highcharts[type || 'Chart'](
-        chartId,
-        this.getStaticOptions()
-      );
-  }
+  // componentDidUpdate() {
+  //   const { modules, type } = this.props;
+  //       // chartType === 'pie' ? PieOptions : options // once Rest API  Ready for chart options we will remove this condition then  only options
+  //   // Extend Highcharts with modules
+  //   if (modules) {
+  //     modules.forEach(module => {
+  //       module(Highcharts);
+  //     });
+  //   }
+  //     this.chart = new Highcharts[type || 'Chart'](
+  //       chartId,
+  //       this.getStaticOptions()
+  //     );
+  // }
 
   // Destroy chart before unmount.
   componentWillUnmount() {
     this.chart.destroy();
   }
+  handleChart(e) {
+    e.preventDefault();
+      const { modules, type } = this.props;
+      const { chartId } = this.state;
+          // chartType === 'pie' ? PieOptions : options // once Rest API  Ready for chart options we will remove this condition then  only options
+      // Extend Highcharts with modules
+      if (modules) {
+        modules.forEach(module => {
+          module(Highcharts);
+        });
+      }
+        this.chart = new Highcharts[type || 'Chart'](
+          chartId,
+          this.getStaticOptions(e.target.value)
+        );
+    }
+    // this.getStaticOptions(e.target.value);
 
   // Render method.
   render() {
     const { chartId } = this.state;
     return (
-          <div id={chartId}  />
+      <div className="card">
+        <select onChange={this.handleChart.bind(this)}>
+          <option value="line">line</option>
+          <option value="column">column</option>
+          <option value="pie">pie</option>
+          <option value="bar">bar</option>
+        </select>
+        <div id={chartId}  />
+      </div>
+
     );
   }
 }

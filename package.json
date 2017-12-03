@@ -10,9 +10,7 @@
   },
   "dependencies": {
     "react-grid-layout": "^0.13.6",
-    "redux": "^3.3.1"
-  },
-  "devDependencies": {
+    "redux": "^3.3.1",
     "@risingstack/graffiti-mongoose": "^5.0.6",
     "babel-cli": "^6.4.5",
     "babel-core": "^6.4.5",

@@ -29,7 +29,7 @@ var config = {
     colors: true,
     historyApiFallback: true,
     inline: true,
-    port: 2016
+    port: 2017
   },
 }
 
