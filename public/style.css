@@ -123,3 +123,19 @@ svg {
 .tableheader {
   background-color: #e0e0e0;
 }
+
+/* ---  High Charts Css --- */
+div.highcharts-contextmenu {
+  div:nth-of-type(1) {
+    div:nth-of-type(1) {
+      display:none;
+    }
+    hr:nth-of-type(1) {
+      display:none;
+    }
+  }
+}
+
+g.highcharts-button {
+  display:none;
+}

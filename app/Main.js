@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import ToDo from './ToDo';
 import Done from './Done';
-import Chart from './Chart';
+import Highchart from './Chart';
 class Main extends Component {
   render() {
     return (
@@ -15,7 +15,7 @@ class Main extends Component {
         </div>
         <h2 style={{textAlign: 'left'}}>This Site is build with react, react-dom, react-redux, webpack, highcharts and node js</h2>
           <hr/>
-          <Chart/>
+          <Highchart/>
           <hr/>
           <div className="row">
             <div className="col-sm-12">

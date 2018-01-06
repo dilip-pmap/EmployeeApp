@@ -9,8 +9,6 @@
     "build": "NODE_ENV=production node_modules/.bin/webpack -p --progress --colors"
   },
   "dependencies": {
-    "react-grid-layout": "^0.13.6",
-    "redux": "^3.3.1",
     "@risingstack/graffiti-mongoose": "^5.0.6",
     "babel-cli": "^6.4.5",
     "babel-core": "^6.4.5",
@@ -28,6 +26,8 @@
     "file-loader": "^0.8.5",
     "fs": "0.0.2",
     "graphql": "^0.4.17",
+    "highcharts": "^4.2.6",
+    "highcharts-more": "^0.1.2",
     "history": "^1.17.0",
     "http": "0.0.0",
     "kerberos": "0.0.18",
@@ -48,6 +48,8 @@
     "react-data-components": "^0.6.0",
     "react-datepicker": "^0.18.0",
     "react-dom": "^0.14.6",
+    "react-fa": "^5.0.0",
+    "react-grid-layout": "^0.13.6",
     "react-iframe": "0.0.4",
     "react-redux": "^4.4.0",
     "react-router": "^2.0.0",
@@ -71,9 +73,7 @@
     "webpack": "^1.12.12",
     "webpack-dev-server": "^1.14.1",
     "webpack-require": "0.0.16",
-    "whatwg-fetch": "^0.11.0",
-    "highcharts": "^4.2.6",
-    "highcharts-more": "^0.1.2"
+    "whatwg-fetch": "^0.11.0"
   },
   "repository": {
     "type": "git",

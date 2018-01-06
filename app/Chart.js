@@ -1,6 +1,7 @@
 // Dependencies.
 import React from 'react';
 import Highcharts from 'highcharts';
+require('highcharts/modules/exporting')(Highcharts);
 /* eslint-disable no-alert, no-console */
 let chartType = 'bar';
 // Define class.
@@ -146,21 +147,28 @@ getPieOptions(options) {
         );
     }
     // this.getStaticOptions(e.target.value);
-
+    handleExportClick(exportType) {
+  this.chart.exportChart({
+    type: exportType,
+    filename: 'chart'
+  });
+}
   // Render method.
   render() {
     const { chartId } = this.state;
     return (
       <div className="card">
         <select onChange={this.handleChart.bind(this)}>
+          <option value="bar">bar</option>
           <option value="line">line</option>
           <option value="column">column</option>
           <option value="pie">pie</option>
-          <option value="bar">bar</option>
         </select>
         <div id={chartId}  />
-      </div>
-
+        <a onClick={this.handleExportClick.bind(this, 'image/png')} className="pull-right" style={{ paddingRight: 30, height: 20, width: 20, display: 'none'  }}>download Image</a>
+        <a onClick={this.handleExportClick.bind(this, 'application/pdf')} className="pull-right" style={{ paddingRight: 30, height: 20, width: 20, display: 'none'  }}>download Pdf</a>
+        <a onClick={this.handleExportClick.bind(this, 'image/jpeg')} className="pull-right" style={{ paddingRight: 30, height: 20, width: 20, paddingTop: 2, display: 'none' }}>download Image</a>
+    </div>
     );
   }
 }
