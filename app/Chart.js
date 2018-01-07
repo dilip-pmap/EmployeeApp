@@ -20,6 +20,7 @@ class Highchart extends React.Component {
   getStaticOptions(chartType) {
     const chartOptions = {
       chart: {
+        height: 360,
         type: chartType
       },
       title: {
@@ -27,9 +28,9 @@ class Highchart extends React.Component {
       },
       xAxis: {
         categories: ['React', 'Angular', 'Sql Server', 'SSRS', 'HTML5'],
-        title: {
-          text: 'rating',
-        }
+        // title: {
+        //   text: 'rating',
+        // }
       },
       yAxis: {
         min: 0,
@@ -42,6 +43,16 @@ class Highchart extends React.Component {
       },
       plotOptions: {
         bar: {
+          dataLabels: {
+            enabled: true
+          }
+        },
+        line: {
+          dataLabels: {
+            enabled: true
+          }
+        },
+        column: {
           dataLabels: {
             enabled: true
           }
@@ -69,6 +80,30 @@ class Highchart extends React.Component {
     return chartOptions;
   }
 
+// getPieOptions(options) {
+//   let PieOptions = {};
+//   let seriesdata = options.series[0].data;
+//   let categories = options.xAxis.categories;
+//   let seriesname = options.series[0].name;
+//   let data = [];
+//   let series = [];
+//   for ( let i = 0; i < seriesdata.length - 1; i++ ) {
+//     data.push({name: categories[i], y: seriesdata[i]});
+//   }
+//   series.push({name: seriesname, colorByPoint: true, data, point: { events: { click() { } } }});
+//   PieOptions = {series};
+//   _.extend(PieOptions, {title: { text: null
+//         }, plotOptions: {pie: { allowPointSelect: true,
+//                 cursor: 'pointer',
+//                 dataLabels: {enabled: true
+//                 },
+//                 showInLegend: true
+//             }
+//         }});
+//   return PieOptions;
+// }
+
+// If Chart Type = pie then updating the options to pie json as per HighChart
 getPieOptions(options) {
   let PieOptions = {};
   let seriesdata = options.series[0].data;
@@ -76,19 +111,13 @@ getPieOptions(options) {
   let seriesname = options.series[0].name;
   let data = [];
   let series = [];
-  for ( let i = 0; i < seriesdata.length - 1; i++ ) {
-    data.push({name: categories[i], y: seriesdata[i]});
+  for (let i = 0; i <= seriesdata.length - 1; i++) {
+    data.push({ name: categories[i], y: seriesdata[i] });
   }
-  series.push({name: seriesname, colorByPoint: true, data});
-  PieOptions = {series};
-  _.extend(PieOptions, {title: { text: null
-        }, plotOptions: {pie: { allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {enabled: true
-                },
-                showInLegend: true
-            }
-        }});
+  series.push({ name: seriesname, colorByPoint: true, data, point: { events: { click() { } } } });
+  PieOptions = { series };
+  _.extend(PieOptions, { title: { text: null
+        } });
   return PieOptions;
 }
   // When the DOM is ready, create the chart.
@@ -125,6 +154,52 @@ getPieOptions(options) {
   //       this.getStaticOptions()
   //     );
   // }
+  // Initially Creating Legend json and append for options
+  getLegendOptions(chartType) {
+    return {
+      chart: {
+        height: 360,
+        type: `${chartType}`
+      },
+      credits: {
+        enabled: false
+      },
+      legend: {
+              enabled: false
+            },
+      plotOptions: {
+        series: {
+          cursor: 'pointer',
+          point: {
+            events: {
+              click() { }
+            }
+          }
+        },
+        bar: {
+          dataLabels: {
+            enabled: true
+          }
+        },
+        column: {
+          dataLabels: {
+            enabled: true
+          }
+        },
+        line: {
+          dataLabels: {
+            enabled: true
+          }
+        },
+        pie: {
+          dataLabels: {
+            enabled: true,
+            formatter() { return `${this.point.name} (${this.point.y})`; }
+          }
+        }
+      }
+    };
+  }
 
   // Destroy chart before unmount.
   componentWillUnmount() {
@@ -134,6 +209,8 @@ getPieOptions(options) {
     e.preventDefault();
       const { modules, type } = this.props;
       const { chartId } = this.state;
+      const legend = this.getLegendOptions(e.target.value);
+      // _.extend(options, legend);
           // chartType === 'pie' ? PieOptions : options // once Rest API  Ready for chart options we will remove this condition then  only options
       // Extend Highcharts with modules
       if (modules) {
@@ -141,24 +218,31 @@ getPieOptions(options) {
           module(Highcharts);
         });
       }
+      let options = this.getStaticOptions(e.target.value);
+      // let PieOptions = {};
+      // if (e.target.value === 'pie') {
+      //   PieOptions = this.getPieOptions(options);
+      // }
+      // e.target.value === 'pie' ? PieOptions : options 
+        
         this.chart = new Highcharts[type || 'Chart'](
           chartId,
-          this.getStaticOptions(e.target.value)
+          options
         );
     }
     // this.getStaticOptions(e.target.value);
     handleExportClick(exportType) {
-  this.chart.exportChart({
-    type: exportType,
-    filename: 'chart'
-  });
-}
+      this.chart.exportChart({
+        type: exportType,
+        filename: 'chart'
+      });
+    }
   // Render method.
   render() {
     const { chartId } = this.state;
     return (
       <div className="card">
-        <select onChange={this.handleChart.bind(this)}>
+        <select onChange={this.handleChart.bind(this)} style={{ height: 30, width: 100, fontSize: 20 }}>
           <option value="bar">bar</option>
           <option value="line">line</option>
           <option value="column">column</option>
