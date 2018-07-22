@@ -223,8 +223,8 @@ getPieOptions(options) {
       // if (e.target.value === 'pie') {
       //   PieOptions = this.getPieOptions(options);
       // }
-      // e.target.value === 'pie' ? PieOptions : options 
-        
+      // e.target.value === 'pie' ? PieOptions : options
+
         this.chart = new Highcharts[type || 'Chart'](
           chartId,
           options
@@ -242,7 +242,7 @@ getPieOptions(options) {
     const { chartId } = this.state;
     return (
       <div className="card">
-        <select onChange={this.handleChart.bind(this)} style={{ height: 30, width: 100, fontSize: 20 }}>
+        <select onChange={this.handleChart.bind(this)} style={{ height: 30, width: 100, fontSize: 20, borderRadius: 5 }}>
           <option value="bar">bar</option>
           <option value="line">line</option>
           <option value="column">column</option>
