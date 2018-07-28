@@ -9,6 +9,7 @@ import Formpage from './Form';
 import Listpage from './EmpList';
 import ToDoPage from './Main';
 import TestPage from './Test';
+import ReactUpgrade from './ReactUpgrade';
 class Main extends Component {
 
   constructor(props) {
@@ -19,6 +20,7 @@ class Main extends Component {
     this.handleShowChart = this.handleShowChart.bind(this);
      this.handleEmployeeList = this.handleEmployeeList.bind(this);
      this.handleLoginPage = this.handleLoginPage.bind(this);
+     this.handleReactUpgrade = this.handleReactUpgrade.bind(this);
   }
 
   handleShowChart() {
@@ -32,6 +34,9 @@ class Main extends Component {
   handleLoginPage() {
     this.setState({screenName: 'login'});
   }
+  handleReactUpgrade() {
+    this.setState({screenName: 'upgrade'});
+  }
   render() {
     let screenToShow = null;
     switch(this.state.screenName) {
@@ -43,6 +48,10 @@ class Main extends Component {
       break;
       case 'login':
       screenToShow = <Loginpage />;
+      break;
+      case 'upgrade':
+      screenToShow = <ReactUpgrade />;
+      break;
       default:
       screenToShow= <Highchart />;
         };
@@ -59,18 +68,23 @@ class Main extends Component {
        <hr/>
             <ul className="nav nav-pills nav-stacked">
               <li className="active" style={{ borderBottom:'1px solid white'}} >
-              <button className="block" style={{ width: '100%'}} onClick={this.handleShowChart}>
+              <button  className="block btn btn-danger" style={{ width: '100%'}} onClick={this.handleShowChart}>
                 Chart
               </button>
               </li>
               <li className="active" style={{ borderBottom:'1px solid white'}}>
-              <button className="block" style={{ width: '100%'}} onClick={this.handleEmployeeList}>
+              <button className="block btn btn-danger" style={{ width: '100%'}} onClick={this.handleEmployeeList}>
               Employee List
               </button>
               </li>
               <li className="active" style={{ borderBottom:'1px solid white'}}>
-              <button className="block" style={{ width: '100%'}} onClick={this.handleLoginPage}>
+              <button className="block btn btn-danger" style={{ width: '100%'}} onClick={this.handleLoginPage}>
               Sample Login Page
+              </button>
+              </li>
+              <li className="active" style={{ borderBottom:'1px solid white'}}>
+              <button className="block btn btn-danger" style={{ width: '100%'}} onClick={this.handleReactUpgrade}>
+              React Packages Upgrade
               </button>
               </li>
             </ul>

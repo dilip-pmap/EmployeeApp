@@ -35,11 +35,11 @@ class login extends React.Component {
       }
     }
     return (
-      <div className="container" style={styles.base}>
-        <div style={{textAlign: 'right'}}><a href="/">{'<< Back'}</a></div>  
+      <div >
+        <div style={{textAlign: 'right'}}><a href="/">{'<< Back'}</a></div>
         <div className="row">
           <div className="col-md-12">
-            <div className="panel panel-primary">
+            <div className="panel panel-warning">
               <div className="panel-heading">
                 <div className="row text-center">
                   <h2>
@@ -69,7 +69,7 @@ class login extends React.Component {
                                 <option value="German">German</option>
                                 <option value="Spanish">Spanish</option>
                               </Input>*/ }
-                        <ButtonInput type="submit" value="Login" bsStyle="primary" className="form-control" onClick={this.handleSubmit.bind(this)} />
+                        <ButtonInput type="submit" value="Login" bsStyle="warning" className="form-control" onClick={this.handleSubmit.bind(this)} />
                         </form>
               </div>
               <div className="col-md-3">
@@ -101,7 +101,7 @@ class login extends React.Component {
                       </div>
                           </div>
                           </div>
-                          <div className="panel-footer text-right primary">
+                          <div className="panel-footer text-right danger">
 <p>One Hub Learning &nbsp; &copy; 2017</p>
                           </div>
                           </div>
