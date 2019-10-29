@@ -63,7 +63,7 @@
     "rimraf": "^2.5.1",
     "routes": "^2.1.0",
     "sass-loader": "^3.1.2",
-    "sequelize": "^3.19.0",
+    "sequelize": "^5.21.2",
     "style-loader": "^0.13.0",
     "sys": "0.0.1",
     "tls": "0.0.1",
