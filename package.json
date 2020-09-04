@@ -31,7 +31,7 @@
     "history": "^1.17.0",
     "http": "0.0.0",
     "kerberos": "0.0.18",
-    "mongodb": "^2.1.4",
+    "mongodb": "^3.6.1",
     "mongodb-core": "^1.2.32",
     "mongoose": "^4.4.2",
     "net": "^1.0.2",
